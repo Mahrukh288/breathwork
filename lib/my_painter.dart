@@ -15,13 +15,13 @@ class MyPainter extends StatefulWidget {
 class _MyPainterState extends State<MyPainter> with TickerProviderStateMixin {
   late Animation<double> animation;
   late AnimationController controller;
-  late Tween<double> rotationTween;
+  Tween<double> rotationTween = Tween(begin: 0, end: 500);
 
   @override
   void initState() {
-    rotationTween = Tween(begin: 0, end: widget.width);
+    // rotationTween = Tween(begin: 0, end: 500);
     controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 15));
+        AnimationController(vsync: this, duration: const Duration(seconds: 10));
 
     animation = rotationTween.animate(controller)
       ..addListener(() {
