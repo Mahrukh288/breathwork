@@ -21,7 +21,7 @@ class _MyPainterState extends State<MyPainter> with TickerProviderStateMixin {
   void initState() {
     // rotationTween = Tween(begin: 0, end: 500);
     controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 10));
+        AnimationController(vsync: this, duration: const Duration(seconds: 5));
 
     animation = rotationTween.animate(controller)
       ..addListener(() {

@@ -12,10 +12,23 @@ class CurvePainter extends CustomPainter {
     path.moveTo(0, 50);
     path.lineTo(animation.value < 100 ? 100 - animation.value : 0, 50);
 
-    path.relativeCubicTo(50 - animation.value, 0, 2 * (50 - animation.value),
-        4 * (50 - animation.value), 4 * (50 - animation.value), 0);
+    path.relativeCubicTo(
+        animation.value >= 100 && animation.value < 400
+            ? (100 - (animation.value - 100)) / 2
+            : 50,
+        0,
+        animation.value >= 100 && animation.value < 400
+            ? 100 - (animation.value - 100)
+            : 100,
+        animation.value >= 100 && animation.value < 400
+            ? 2 * (100 - (animation.value - 100))
+            : 200,
+        animation.value >= 100 && animation.value < 400
+            ? 2 * (100 - (animation.value - 100))
+            : 200,
+        0);
 
-    path.relativeLineTo(animation.value >= 300 ? animation.value : 0, 0);
+    path.relativeLineTo(animation.value, 0);
 
     // if (animation.value <= 250) {
     //   path.lineTo(100, 50);
